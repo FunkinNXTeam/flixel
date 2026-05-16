@@ -602,6 +602,9 @@ class FlxG
 
 	static function initRenderMethod():Void
 	{
+		#if vita
+		renderMethod = DRAW_TILES;
+		#end
 		#if !flash
 		renderMethod = switch (stage.window.context.type)
 		{
