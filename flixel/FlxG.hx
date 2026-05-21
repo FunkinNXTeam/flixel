@@ -604,8 +604,7 @@ class FlxG
 	{
 		#if vita
 		renderMethod = DRAW_TILES;
-		#end
-		#if !flash
+		#elseif !flash
 		renderMethod = switch (stage.window.context.type)
 		{
 			case OPENGL, OPENGLES, WEBGL: DRAW_TILES;

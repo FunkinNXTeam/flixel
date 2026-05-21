@@ -345,8 +345,13 @@ class BitmapFrontEnd
 	static var _maxTextureSize = -1;
 	function get_maxTextureSize():Int
 	{
+		#if vita
+		if (_maxTextureSize < 0)
+			_maxTextureSize = 4096;
+		#else
 		if (_maxTextureSize < 0 && FlxG.stage.window.context.attributes.hardware)
 			_maxTextureSize = cast GL.getParameter(GL.MAX_TEXTURE_SIZE);
+		#end
 		
 		return _maxTextureSize;
 	}
